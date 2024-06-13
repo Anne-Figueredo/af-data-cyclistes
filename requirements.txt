@@ -8,3 +8,4 @@ seaborn
 folium
 geopandas
 joblib
+contextily
