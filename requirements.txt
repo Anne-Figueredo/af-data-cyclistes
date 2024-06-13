@@ -7,3 +7,4 @@ prophet
 seaborn
 folium
 geopandas
+joblib
