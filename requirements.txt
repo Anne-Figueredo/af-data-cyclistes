@@ -9,5 +9,4 @@ folium
 geopandas
 joblib
 contextily
-sklearn.model_selection
 sklearn
