@@ -10,3 +10,7 @@ geopandas
 joblib
 contextily
 scikit-learn
+pip install PyDrive
+pip install google-auth
+pip install google-auth-oauthlib
+pip install google-auth-httplib2
