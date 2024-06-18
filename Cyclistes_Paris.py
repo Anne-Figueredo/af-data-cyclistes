@@ -51,22 +51,21 @@ def load_old_data():
 # Chargement des données
 df_old = load_old_data()
 
-# Affichage des données
-st.write(df_old)
+
 
 #mise en cache du df pour améliorer la performance
 @st.cache_data
-def load_old_data():
-    df_old = pd.read_csv('comptage-velo-donnees-compteurs.csv', sep=';')
-    return df_old
+#def load_old_data():
+ #   df_old = pd.read_csv('comptage-velo-donnees-compteurs.csv', sep=';')
+  #  return df_old
 
-@st.cache_data
-def load_data_clean():
-    df = pd.read_csv('comptage-velo-CLEAN.csv', sep=',')
-    return df
+#@st.cache_data
+#def load_data_clean():
+ #   df = pd.read_csv('comptage-velo-CLEAN.csv', sep=',')
+  #  return df
 
-df_old = load_old_data()
-df = load_data_clean()
+#df_old = load_old_data()
+#df = load_data_clean()
 
 st.sidebar.image("velo-gif2.gif", width= None)
 st.sidebar.title("Sommaire")
