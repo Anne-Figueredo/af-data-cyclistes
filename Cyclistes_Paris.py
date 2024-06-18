@@ -27,7 +27,32 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
 from joblib import dump, load
 
+# Authentification et initialisation
+@st.cache_resource
+def init_drive():
+    gauth = GoogleAuth()
+    gauth.DEFAULT_SETTINGS['client_config_file'] = 'credentials.json'
+    gauth.LocalWebserverAuth()  # Créez l'authentification
+    drive = GoogleDrive(gauth)
+    return drive
 
+# Télécharger le fichier depuis Google Drive
+@st.cache_data
+def load_old_data():
+    drive = init_drive()
+    file_id = 'comptage-velo-donnees-compteurs.csv'  # Remplacez par l'ID de votre fichier Google Drive
+    downloaded = drive.CreateFile({'id': file_id})
+    downloaded.GetContentFile('comptage-velo-donnees-compteurs.csv')
+    
+    # Chargement du fichier dans un DataFrame
+    df_old = pd.read_csv('comptage-velo-donnees-compteurs.csv', sep=';')
+    return df_old
+
+# Chargement des données
+df_old = load_old_data()
+
+# Affichage des données
+st.write(df_old)
 
 #mise en cache du df pour améliorer la performance
 @st.cache_data
