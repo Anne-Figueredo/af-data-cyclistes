@@ -54,7 +54,7 @@ df_old = load_old_data()
 
 
 #mise en cache du df pour améliorer la performance
-@st.cache_data
+#@st.cache_data
 #def load_old_data():
  #   df_old = pd.read_csv('comptage-velo-donnees-compteurs.csv', sep=';')
   #  return df_old
